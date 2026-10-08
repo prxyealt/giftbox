@@ -4134,7 +4134,7 @@ const shareCopyButton = document.getElementById("shareCopyButton");
 if (finishGiftButton) {
     finishGiftButton.addEventListener("click", function () {
 
-        const shareLink = "https://giftbox.app/g/" + generateShareId();
+const shareLink = window.location.origin + window.location.pathname + "?gift=" + generateShareId();
 
         if (shareLinkInput) shareLinkInput.value = shareLink;
         if (sharePopupOverlay) sharePopupOverlay.classList.add("open");
