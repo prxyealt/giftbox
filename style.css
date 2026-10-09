@@ -2786,6 +2786,45 @@ body:not([data-screen="home"]) .site-menu-button {
     gap: 20px;
 }
 
+/* Desktop centering. The header title is centered on the page itself
+   (not between buttons of different widths), and an empty spacer the
+   same width as the side panel balances the Arrange body, so the canvas
+   sits on the page's center line with the panel to its right. Mobile
+   (<= 860px) keeps its stacked layout above. */
+@media (min-width: 861px) {
+
+    .arrange-header {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        padding-left: 0;
+    }
+
+    .arrange-header h2 {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: center;
+    }
+
+    .arrange-header .arrange-back-button {
+        grid-column: 1;
+        grid-row: 1;
+        justify-self: start;
+        margin-left: 62px;
+    }
+
+    .arrange-header .arrange-preview-button {
+        grid-column: 3;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .arrange-body::before {
+        content: "";
+        flex: 0 0 240px;
+    }
+
+}
+
 .arrange-side-panel {
     width: 240px;
     flex-shrink: 0;
